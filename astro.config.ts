@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import { fileURLToPath } from 'url';
 
 import tailwindcss from '@tailwindcss/vite';
@@ -12,6 +12,27 @@ export default defineConfig({
       },
     },
     plugins: [tailwindcss()],
+  },
+
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: 'Poppins',
+        weights: [500],
+        styles: ['normal'],
+        subsets: ['latin'],
+        cssVariable: '--font-poppins',
+      },
+      {
+        provider: fontProviders.google(),
+        name: 'Inter',
+        weights: [800],
+        styles: ['normal'],
+        subsets: ['latin'],
+        cssVariable: '--font-inter',
+      },
+    ],
   },
 
   integrations: [vue()],

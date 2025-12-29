@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-poppins: var(--font-poppins);
+  --color-primary: #39db4a;
+}
+
+@layer base {
+  .active-link {
+    @apply text-primary;
+  }
+}
