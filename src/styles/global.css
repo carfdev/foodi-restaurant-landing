@@ -2,6 +2,9 @@
 
 @theme {
   --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
+  --default-font-family: var(--font-inter);
+  --default-mono-font-family: var(--font-poppins);
   --color-primary: #39db4a;
 }
 

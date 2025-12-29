@@ -1,15 +1,16 @@
 <script setup lang="ts">
-interface Props {
-  count?: number;
-}
+import { useStore } from '@nanostores/vue';
+import { cartItems } from '@/store/cartStore';
 
-withDefaults(defineProps<Props>(), {
-  count: 0,
-});
+const $cartItems = useStore(cartItems);
 </script>
 
 <template>
-  <a href="/cart" class="flex items-center rounded-md p-2 hover:bg-gray-100 hover:shadow">
+  <a
+    href="/cart"
+    class="flex items-center rounded-md p-2 hover:bg-gray-100 hover:shadow"
+    aria-label="Cart"
+  >
     <div class="relative">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path
@@ -18,9 +19,11 @@ withDefaults(defineProps<Props>(), {
         ></path>
       </svg>
       <span
+        v-if="Object.values($cartItems).length > 0"
         class="bg-primary absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-xs text-white"
-        >{{ count }}</span
       >
+        {{ Object.values($cartItems).length }}
+      </span>
     </div>
   </a>
 </template>

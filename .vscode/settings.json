@@ -17,5 +17,6 @@
   },
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+  "cSpell.words": ["nanostores"]
 }
