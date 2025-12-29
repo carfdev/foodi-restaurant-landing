@@ -1,0 +1,10 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MyCounter from '@/components/MyCounter.vue';
+---
+
+<Layout>
+  <div class="flex h-screen items-center justify-center">
+    <MyCounter client:visible />
+  </div>
+</Layout>
