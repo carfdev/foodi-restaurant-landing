@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Logo from '@/assets/logo.svg';
 import PhoneIcon from '@/components/icons/Phone.astro';
-import Cart from '@/components/Cart.vue';
+import ShoppingCart from '@/components/ShoppingCart.vue';
 import HeaderLink from './HeaderLink.astro';
 ---
 
@@ -17,7 +17,7 @@ import HeaderLink from './HeaderLink.astro';
     <HeaderLink href="/offers" label="Offers" />
   </div>
   <div class="flex gap-12">
-    <Cart client:load />
+    <ShoppingCart client:load />
     <a
       href="/contact"
       class="bg-primary hover:bg-primary/90 flex items-center gap-2 rounded-full px-6 py-2 text-white hover:shadow"

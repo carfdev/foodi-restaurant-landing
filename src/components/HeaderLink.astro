@@ -5,8 +5,10 @@ interface Props {
 }
 
 const { href, label } = Astro.props;
+
+const { pathname } = Astro.url;
+const normalize = (path: string) => path.replace(/\/+$/, '') || '/';
+const isActive = normalize(pathname) === normalize(href);
 ---
 
-<a href={href} class={Astro.url.pathname === href ? 'active-link' : 'hover:text-primary/90'}
-  >{label}</a
->
+<a href={href} class:list={[isActive ? 'active-link' : 'hover:text-primary/90']}>{label}</a>
