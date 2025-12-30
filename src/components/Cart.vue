@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import { useStore } from '@nanostores/vue';
 import { cartItems } from '@/store/cartStore';
 
 const $cartItems = useStore(cartItems);
+const isMounted = ref(false);
+
+onMounted(() => {
+  isMounted.value = true;
+});
 </script>
 
 <template>
@@ -19,7 +25,7 @@ const $cartItems = useStore(cartItems);
         ></path>
       </svg>
       <span
-        v-if="Object.values($cartItems).length > 0"
+        v-if="isMounted && Object.values($cartItems).length > 0"
         class="bg-primary absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-xs text-white"
       >
         {{ Object.values($cartItems).length }}
