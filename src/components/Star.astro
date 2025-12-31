@@ -1,0 +1,35 @@
+---
+interface Props {
+  score?: number; // 0 to 10
+  class?: string;
+}
+
+const { score = 0, class: className } = Astro.props;
+
+// Calculate percentage: (score / 10) * 100
+const percentage = Math.min(100, Math.max(0, (score / 10) * 100));
+
+// Generate unique ID for the gradient to allow multiple stars on one page
+const id = 'star-gradient-' + Math.random().toString(36).substr(2, 9);
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="-2 -2 20 20"
+  class={className}
+  style="overflow: visible;"
+>
+  <defs>
+    <linearGradient id={id}>
+      <stop offset={`${percentage}%`} stop-color="#FFD700"></stop>
+      <stop offset={`${percentage}%`} stop-color="transparent"></stop>
+    </linearGradient>
+  </defs>
+  <path
+    fill={`url(#${id})`}
+    stroke="#9CA3AF"
+    stroke-width={score == 0 ? 2 : 0}
+    stroke-linejoin="round"
+    d="M.885 8.267 3.258 10l-.901 2.791a2.12 2.12 0 0 0 .789 2.41 2.12 2.12 0 0 0 2.533-.014L8 13.48l2.322 1.705a2.151 2.151 0 0 0 3.322-2.394l-.901-2.79 2.373-1.734a2.152 2.152 0 0 0-1.267-3.888h-2.915l-.884-2.757a2.151 2.151 0 0 0-4.098 0l-.884 2.757H2.154A2.151 2.151 0 0 0 .887 8.267z"
+  ></path>
+</svg>

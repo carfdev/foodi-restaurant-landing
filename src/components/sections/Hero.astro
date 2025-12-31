@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import HeroImage from '@/assets/hero.webp';
+import Play from '@/components/icons/Play.astro';
+import HeroCard from './HeroCard.astro';
+import HeroCardImageOne from '@/assets/hero-card-one.webp';
+import HeroCardImageTwo from '@/assets/hero-card-two.webp';
+---
+
+<section
+  class="container mx-auto flex min-h-[calc(100vh-6rem)] flex-col-reverse items-center gap-24 px-8 pt-4 pb-20 lg:flex-row lg:justify-between"
+>
+  <header class="flex max-w-2xl flex-col gap-6 lg:gap-12">
+    <h1 class="animate-fade-in text-balance duration-100 ease-in">
+      Dive into Delights Of Delectable <span class="text-malachite-400">Food</span>
+    </h1>
+    <p class="text-lg font-medium text-gray-600 lg:text-2xl">
+      Where Each Plate Weaves a Story of Culinary Mastery and Passionate Craftsmanship
+    </p>
+    <div
+      class="animate-fade-in-up flex flex-col items-center gap-8 duration-100 ease-in sm:flex-row"
+    >
+      <button
+        class="bg-malachite-400 shadow-malachite-300 cursor-pointer rounded-full px-7 py-3 text-lg font-semibold text-white shadow-2xl transition-transform hover:scale-105 lg:text-2xl"
+      >
+        Order Now
+      </button>
+      <span class="rounded-full text-lg font-semibold text-gray-600 lg:text-2xl">
+        Watch Video
+      </span>
+      <button
+        class="flex size-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-xl shadow-gray-300 transition-transform hover:scale-105"
+      >
+        <Play class="ml-1 size-5 text-gray-600" />
+      </button>
+    </div>
+  </header>
+  <aside class="relative">
+    <Image
+      src={HeroImage}
+      alt="Hero"
+      loading="eager"
+      class="animate-fade-in relative w-full duration-100 ease-in"
+    />
+    <div
+      class="animate-bounce-fade-in absolute -bottom-10 left-0 flex w-full items-center justify-center gap-8 duration-100 ease-in"
+    >
+      <HeroCard image={HeroCardImageOne} title="Spicy noodles" rating={3} price={18} />
+      <HeroCard
+        image={HeroCardImageTwo}
+        title="Vegetarian salad"
+        rating={4}
+        price={23}
+        class="hidden sm:flex"
+      />
+    </div>
+    <div
+      class="animate-rubber-band absolute top-0 -left-4 rounded-full rounded-br-none bg-white px-4 py-2 shadow-xl duration-100 ease-in sm:top-20 md:top-32 lg:-left-20 xl:top-48 xl:-left-10"
+    >
+      <span>Hot spicy Food 🌶</span>
+    </div>
+  </aside>
+</section>

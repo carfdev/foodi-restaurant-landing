@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { cn } from '@/helpers';
+import Star from '@/components/Star.astro';
+
+interface Props {
+  image: ImageMetadata;
+  title: string;
+  rating: number;
+  price: number;
+  class?: string;
+}
+
+const { image: Img, title, rating, price, class: className } = Astro.props;
+---
+
+<div class={cn('flex min-w-52 gap-3 rounded-xl bg-white p-3 shadow-2xl', className)}>
+  <Image src={Img} alt={title} loading="eager" class="aspect-square size-16 rounded-lg" />
+  <div class="flex flex-col justify-between">
+    <p class="text-xs font-semibold">{title}</p>
+    <div class="flex items-center gap-0.5">
+      {Array.from({ length: rating }).map(() => <Star score={10} class="size-3" />)}
+      {Array.from({ length: 5 - rating }).map(() => <Star score={0} class="size-3" />)}
+    </div>
+    <p class="text-[10px] font-medium text-gray-500">
+      <span class="text-carnation-400 text-sm font-semibold">$</span>
+      <span class="text-lg font-semibold"> {price.toFixed(2)}</span>
+    </p>
+  </div>
+</div>

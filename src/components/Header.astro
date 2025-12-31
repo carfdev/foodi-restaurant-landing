@@ -7,21 +7,23 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header
-  class="font-poppins sticky top-0 z-50 container mx-auto flex h-24 items-center justify-between bg-white text-xl font-medium text-gray-800"
+  class="font-poppins sticky top-0 z-50 container mx-auto flex h-24 items-center justify-between bg-gray-50 px-8 text-xl font-medium text-gray-800"
 >
   <a href="/" aria-label="Home"><Image src={Logo} alt="Logo" loading="eager" /></a>
-  <div class="flex gap-12">
+  <div class="hidden gap-12 lg:flex">
     <HeaderLink href="/" label="Home" />
     <HeaderLink href="/menu" label="Menu" />
     <HeaderLink href="/services" label="Services" />
     <HeaderLink href="/offers" label="Offers" />
   </div>
   <div class="flex gap-12">
-    <ShoppingCart client:load />
+    <ShoppingCart client:load transition:persist="cart" />
     <a
       href="/contact"
-      class="bg-primary hover:bg-primary/90 flex items-center gap-2 rounded-full px-6 py-2 text-white hover:shadow"
-      ><PhoneIcon />Contact</a
+      class="bg-malachite-400 hover:shadow-malachite-300 hidden items-center gap-2 rounded-full px-6 py-2 text-white transition-colors hover:shadow-2xl lg:flex"
     >
+      <PhoneIcon />
+      Contact
+    </a>
   </div>
 </header>

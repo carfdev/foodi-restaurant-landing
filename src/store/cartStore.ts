@@ -8,7 +8,7 @@ export type CartItem = {
 
 type ItemDisplayInfo = Pick<CartItem, 'id' | 'name'>;
 
-export const cartItems = persistentAtom<Record<string, CartItem>>(
+export const cartItemsStore = persistentAtom<Record<string, CartItem>>(
   'cartItems',
   {},
   {
@@ -18,11 +18,11 @@ export const cartItems = persistentAtom<Record<string, CartItem>>(
 );
 
 export const addCartItem = ({ id, name }: ItemDisplayInfo) => {
-  const currentCart = cartItems.get();
+  const currentCart = cartItemsStore.get();
   const existingEntry = currentCart[id];
 
   if (existingEntry) {
-    cartItems.set({
+    cartItemsStore.set({
       ...currentCart,
       [id]: {
         ...existingEntry,
@@ -30,7 +30,7 @@ export const addCartItem = ({ id, name }: ItemDisplayInfo) => {
       },
     });
   } else {
-    cartItems.set({
+    cartItemsStore.set({
       ...currentCart,
       [id]: { id, name, quantity: 1 },
     });

@@ -1,6 +1,6 @@
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import { useStore } from '@nanostores/vue';
-import { cartItems as cartItemsStore } from '@/store/cartStore';
+import { cartItemsStore } from '@/store/cartStore';
 
 export default defineComponent({
   setup() {
