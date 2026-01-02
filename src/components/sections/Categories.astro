@@ -1,0 +1,18 @@
+---
+import CategoryImageOne from '@/assets/category-1.png';
+import CategoryImageTwo from '@/assets/category-2.png';
+import CategoryImageThree from '@/assets/category-3.png';
+import CategoryImageFour from '@/assets/category-4.png';
+import CategoryCard from './CategoryCard.astro';
+---
+
+<section class="container mx-auto px-4 py-24">
+  <p class="description text-center">Customer Favorites</p>
+  <h2 class="text-center">Popular Categories</h2>
+  <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <CategoryCard image={CategoryImageOne} title="Main Dish" description="86 dishes" />
+    <CategoryCard image={CategoryImageTwo} title="Break Fast" description="12 break fast" />
+    <CategoryCard image={CategoryImageThree} title="Dessert" description="48 dessert" />
+    <CategoryCard image={CategoryImageFour} title="Browse All" description="255 Items" />
+  </div>
+</section>

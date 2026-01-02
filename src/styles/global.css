@@ -35,11 +35,20 @@
   .active-link {
     @apply text-malachite-400;
   }
+
+  .description {
+    @apply text-carnation-400 text-xl font-bold uppercase;
+  }
 }
 
 @layer utilities {
   h1 {
     font-size: clamp(2rem, 4.5vw, 3.5rem);
     font-weight: 800;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 700;
   }
 }
