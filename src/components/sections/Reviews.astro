@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import CustomerImage from '@/assets/review-img.png';
+import ReviewOne from '@/assets/review-1.png';
+import ReviewTwo from '@/assets/review-2.png';
+import ReviewThree from '@/assets/review-3.png';
+import Star from '../Star.astro';
+---
+
+<section
+  class="container mx-auto flex flex-col items-center justify-between gap-12 px-4 py-24 lg:flex-row"
+>
+  <div class="relative scale-90">
+    <Image src={CustomerImage} alt="Customer" class="relative" />
+    <div
+      class="absolute -right-4 -bottom-4 rounded-r-full rounded-bl-full bg-white px-6 py-3 shadow-lg"
+    >
+      <p class="text-xl font-medium">Our Best Chef 😁</p>
+    </div>
+    <div class="absolute bottom-1/4 -left-4">
+      <p class="-rotate-12 text-4xl">😋</p>
+    </div>
+    <div class="absolute -right-4 bottom-1/3">
+      <p class="rotate-90 text-4xl">🍕</p>
+    </div>
+  </div>
+  <div class="flex max-w-xl flex-col gap-4">
+    <p class="description">Customer Reviews</p>
+    <h2>What Our Customers Say About Us</h2>
+    <p class="mt-6 text-xl font-medium text-gray-500">
+      “I had the pleasure of dining at Foodi last night, and I'm still raving about the experience!
+      The attention to detail in presentation and service was impeccable”
+    </p>
+    <div class="mt-6 flex items-center">
+      <div class="flex">
+        <Image
+          src={ReviewOne}
+          alt="Review"
+          class="rounded-full border-4 border-gray-50 bg-yellow-100"
+        />
+        <Image
+          src={ReviewTwo}
+          alt="Review"
+          class="-translate-x-1/3 rounded-full border-4 border-gray-50 bg-yellow-100"
+        />
+        <Image
+          src={ReviewThree}
+          alt="Review"
+          class="-translate-x-2/3 rounded-full border-4 border-gray-50 bg-yellow-100"
+        />
+      </div>
+      <div>
+        <p class="text-2xl font-semibold">Customer Feedback</p>
+        <div class="mt-2 flex items-center gap-2">
+          <Star class="size-6" score={10} />
+          <p class="text-xl font-semibold text-gray-700">4.9</p>
+          <p class="text-xl font-semibold text-gray-500">(18.6k Reviews)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
