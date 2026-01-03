@@ -1,0 +1,32 @@
+---
+import OurMenuCard from './OurMenuCard.astro';
+import FattoushSaladImage from '@/assets/fattoush-salad.png';
+import EggSaladImage from '@/assets/egg-salad.png';
+import VegetableSaladImage from '@/assets/vegetable-salad.png';
+---
+
+<section class="container mx-auto px-4 py-24">
+  <div class="flex items-end justify-between">
+    <div class="max-w-lg">
+      <p class="description">Special Dishes</p>
+      <h2>Standout Dishes From Our Menu</h2>
+    </div>
+  </div>
+  <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <OurMenuCard
+      id="fattoush-salad"
+      name="Fattoush Salad"
+      price={24}
+      image={FattoushSaladImage}
+      score={4.9}
+    />
+    <OurMenuCard
+      id="vegetable-salad"
+      name="Vegetable Salad"
+      price={26}
+      image={VegetableSaladImage}
+      score={4.6}
+    />
+    <OurMenuCard id="egg-salad" name="Egg Salad" price={23} image={EggSaladImage} score={4.5} />
+  </div>
+</section>

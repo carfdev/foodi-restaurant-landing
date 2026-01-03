@@ -1,54 +1,7 @@
 @import 'tailwindcss';
+
 @plugin '@midudev/tailwind-animations';
+@plugin 'tailwind-scrollbar';
 
-@theme {
-  --font-poppins: var(--font-poppins);
-  --font-inter: var(--font-inter);
-  --default-font-family: var(--font-inter);
-  --default-mono-font-family: var(--font-poppins);
-  --color-malachite-50: #f0fdf1;
-  --color-malachite-100: #dcfcdf;
-  --color-malachite-200: #bbf7c0;
-  --color-malachite-300: #86ef91;
-  --color-malachite-400: #39db4a;
-  --color-malachite-500: #22c534;
-  --color-malachite-600: #16a325;
-  --color-malachite-700: #158021;
-  --color-malachite-800: #16651f;
-  --color-malachite-900: #14531d;
-  --color-malachite-950: #052e0b;
-
-  --color-carnation-50: #fff1f1;
-  --color-carnation-100: #ffe1e1;
-  --color-carnation-200: #ffc7c7;
-  --color-carnation-300: #ffa0a0;
-  --color-carnation-400: #ff6868;
-  --color-carnation-500: #f83b3b;
-  --color-carnation-600: #e51d1d;
-  --color-carnation-700: #c11414;
-  --color-carnation-800: #a01414;
-  --color-carnation-900: #841818;
-  --color-carnation-950: #480707;
-}
-
-@layer base {
-  .active-link {
-    @apply text-malachite-400;
-  }
-
-  .description {
-    @apply text-carnation-400 text-xl font-bold uppercase;
-  }
-}
-
-@layer utilities {
-  h1 {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
-    font-weight: 800;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
-    font-weight: 700;
-  }
-}
+@import '@/styles/theme.css';
+@import '@/styles/base.css';

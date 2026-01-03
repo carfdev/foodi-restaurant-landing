@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+
+import Star from '@/components/Star.astro';
+import Cart from '@/components/icons/Cart.astro';
+import AddCartButton from '@/components/AddCartButton.vue';
+
+interface Props {
+  id: string;
+  name: string;
+  description?: string;
+  price: number;
+  image: ImageMetadata;
+  score: number;
+}
+
+const { id, name, description = 'Description of the item', price, image: Img, score } = Astro.props;
+---
+
+<div class="relative flex flex-col gap-2 rounded-3xl bg-white p-6 shadow-lg">
+  <Image src={Img} alt={name} class="mx-auto aspect-square w-5/8" />
+  <h3 class="mt-4 text-3xl font-semibold">{name}</h3>
+  <p class="text-xl font-semibold text-gray-500">{description}</p>
+  <div class="mt-4 flex items-center justify-between">
+    <p class="text-[10px] font-medium">
+      <span class="text-carnation-400 text-xl font-semibold">$</span>
+      <span class="text-3xl font-semibold"> {price.toFixed(2)}</span>
+    </p>
+    <div class="flex items-center gap-2">
+      <Star class="size-5" score={10} />
+      <span class="text-xl font-medium text-gray-500">{score}</span>
+    </div>
+  </div>
+  <AddCartButton
+    client:visible
+    id={id}
+    name={name}
+    class="bg-malachite-400 absolute top-0 right-0 flex h-16 w-16 cursor-pointer items-center justify-center rounded-tr-3xl rounded-bl-3xl"
+  >
+    <Cart class="size-6 text-white" />
+  </AddCartButton>
+  <!-- <div
+    class="bg-malachite-400 absolute top-0 right-0 flex h-16 w-16 cursor-pointer items-center justify-center rounded-tr-3xl rounded-bl-3xl"
+  >
+    <Cart class="size-6 text-white" />
+  </div> -->
+</div>

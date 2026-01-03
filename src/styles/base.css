@@ -1,0 +1,33 @@
+@layer base {
+  html,
+  body {
+    @apply scrollbar-thin scrollbar-thumb-malachite-300 scrollbar-track-malachite-50;
+    ::-webkit-scrollbar-thumb {
+      border-radius: 9999px; /* full */
+    }
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  a,
+  button {
+    @apply focus-visible:ring-malachite-200 cursor-pointer rounded-md focus-visible:ring-3 focus-visible:ring-offset-3 focus-visible:ring-offset-gray-50 focus-visible:outline-none;
+  }
+
+  .active-link {
+    @apply text-malachite-400;
+  }
+
+  .description {
+    @apply text-carnation-400 text-xl font-bold uppercase;
+  }
+}

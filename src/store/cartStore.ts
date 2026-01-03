@@ -1,3 +1,4 @@
+import { atom } from 'nanostores';
 import { persistentAtom } from '@nanostores/persistent';
 
 export type CartItem = {
@@ -8,31 +9,69 @@ export type CartItem = {
 
 type ItemDisplayInfo = Pick<CartItem, 'id' | 'name'>;
 
-export const cartItemsStore = persistentAtom<Record<string, CartItem>>(
-  'cartItems',
-  {},
-  {
-    encode: JSON.stringify,
-    decode: JSON.parse,
-  },
-);
+const CART_STORAGE_KEY = 'cartItems';
+const isClient = typeof window !== 'undefined';
+
+const createCartStore = () => {
+  if (isClient) {
+    return persistentAtom<Record<string, CartItem>>(
+      CART_STORAGE_KEY,
+      {},
+      {
+        encode: JSON.stringify,
+        decode: JSON.parse,
+      },
+    );
+  }
+  return atom<Record<string, CartItem>>({});
+};
+
+export const cartItemsStore = createCartStore();
 
 export const addCartItem = ({ id, name }: ItemDisplayInfo) => {
   const currentCart = cartItemsStore.get();
-  const existingEntry = currentCart[id];
+  const existingItem = currentCart[id];
 
-  if (existingEntry) {
-    cartItemsStore.set({
-      ...currentCart,
-      [id]: {
-        ...existingEntry,
-        quantity: existingEntry.quantity + 1,
-      },
-    });
-  } else {
-    cartItemsStore.set({
-      ...currentCart,
-      [id]: { id, name, quantity: 1 },
-    });
+  cartItemsStore.set({
+    ...currentCart,
+    [id]: {
+      id,
+      name,
+      quantity: existingItem ? existingItem.quantity + 1 : 1,
+    },
+  });
+};
+
+export const removeCartItem = (id: string) => {
+  const currentCart = cartItemsStore.get();
+  const { [id]: removed, ...remainingItems } = currentCart;
+  cartItemsStore.set(remainingItems);
+};
+
+export const updateCartItemQuantity = (id: string, quantity: number) => {
+  if (quantity <= 0) {
+    removeCartItem(id);
+    return;
   }
+
+  const currentCart = cartItemsStore.get();
+  if (!currentCart[id]) return;
+
+  cartItemsStore.set({
+    ...currentCart,
+    [id]: { ...currentCart[id], quantity },
+  });
+};
+
+export const clearCart = () => {
+  cartItemsStore.set({});
+};
+
+// Helpers
+export const getCartItem = (id: string): CartItem | undefined => {
+  return cartItemsStore.get()[id];
+};
+
+export const hasItemInCart = (id: string): boolean => {
+  return id in cartItemsStore.get();
 };
