@@ -1,0 +1,46 @@
+---
+import Salad from '../icons/Salad.astro';
+import Time from '../icons/Time.astro';
+import CartChecked from '../icons/CartChecked.astro';
+import Gift from '../icons/Gift.astro';
+import StoryCard from './StoryCard.astro';
+---
+
+<section
+  class="container mx-auto flex flex-col items-center justify-between gap-12 px-4 py-24 lg:flex-row"
+>
+  <div class="flex max-w-2xl flex-col gap-4">
+    <p class="description">Our Story & Services</p>
+    <h2>Our Culinary Journey And Services</h2>
+    <p class="mt-6 text-xl font-medium text-gray-500">
+      Rooted in passion, we curate unforgettable dining experiences and offer exceptional services,
+      blending culinary artistry with warm hospitality.
+    </p>
+    <button
+      class="bg-malachite-400 shadow-malachite-300 mt-6 w-fit cursor-pointer rounded-full px-7 py-3 text-lg font-semibold text-white shadow-2xl transition-transform hover:scale-105 lg:text-2xl"
+      >Explore</button
+    >
+  </div>
+  <div class="grid max-w-xl grid-cols-1 gap-8 sm:grid-cols-2">
+    <StoryCard
+      title="Catering"
+      description="Delight your guests with our flavors and presentation"
+      icon={Salad}
+    />
+    <StoryCard
+      title="Fast delivery"
+      description="We deliver your order promptly to your door"
+      icon={Time}
+    />
+    <StoryCard
+      title="Online Ordering"
+      description="Explore menu & order with ease using our Online Ordering"
+      icon={CartChecked}
+    />
+    <StoryCard
+      title="Gift Cards"
+      description="Give the gift of exceptional dining with Foodi Gift Cards"
+      icon={Gift}
+    />
+  </div>
+</section>
