@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '@/assets/logo.svg';
+---
+
+<footer class="container mx-auto px-4 py-12">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-16">
+    <div class="flex flex-col gap-6 md:col-span-3 lg:col-span-1">
+      <a href="/"><Image src={Logo} alt="Logo" loading="eager" /></a>
+      <p class="text-2xl font-medium text-gray-500">
+        Savor the artistry where every dish is a culinary masterpiece
+      </p>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h3 class="text-2xl font-semibold">Quick Links</h3>
+      <ul class="flex flex-col gap-2">
+        <li class="text-2xl font-medium text-gray-500"><a href="/about">About us</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/events">Events</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/blogs">Blogs</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h3 class="text-2xl font-semibold">Main Menu</h3>
+      <ul class="flex flex-col gap-2">
+        <li class="text-2xl font-medium text-gray-500"><a href="/">Home</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/offers">Offers</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/menu">Menus</a></li>
+        <li class="text-2xl font-medium text-gray-500"><a href="/reservation">Reservation</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h3 class="text-2xl font-semibold">Contact Us</h3>
+      <ul class="flex flex-col gap-2">
+        <li class="text-2xl font-medium text-gray-500">
+          <a href="mailto:example@email.com">example@email.com</a>
+        </li>
+        <li class="text-2xl font-medium text-gray-500">
+          <a href="tel:+64958248966">+64 958 248 966</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-10 flex items-center justify-center">
+    <p class="text-center text-2xl font-medium text-balance text-gray-500">
+      Copyright © 2026 | Designed by Dscode | Developed by CarfDev
+    </p>
+  </div>
+</footer>
+
+<style>
+  a {
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+    color: inherit;
+
+    &:hover {
+      color: var(--color-malachite-400);
+    }
+  }
+</style>

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
 @plugin '@midudev/tailwind-animations';
 @plugin 'tailwind-scrollbar';
