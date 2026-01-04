@@ -32,16 +32,11 @@ const { id, name, description = 'Description of the item', price, image: Img, sc
     </div>
   </div>
   <AddCartButton
-    client:visible
+    client:idle
     id={id}
     name={name}
     class="bg-malachite-400 absolute top-0 right-0 flex h-16 w-16 cursor-pointer items-center justify-center rounded-tr-3xl rounded-bl-3xl"
   >
     <Cart class="size-6 text-white" />
   </AddCartButton>
-  <!-- <div
-    class="bg-malachite-400 absolute top-0 right-0 flex h-16 w-16 cursor-pointer items-center justify-center rounded-tr-3xl rounded-bl-3xl"
-  >
-    <Cart class="size-6 text-white" />
-  </div> -->
 </div>
