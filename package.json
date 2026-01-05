@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.{astro,vue,js,ts,css,html,md,mdx,scss,less,sss,ts,tsx,vue}\""
   },
   "dependencies": {
+    "@astrojs/netlify": "6.6.3",
     "@astrojs/vue": "5.1.3",
     "@midudev/tailwind-animations": "0.2.0",
     "@nanostores/persistent": "1.2.0",

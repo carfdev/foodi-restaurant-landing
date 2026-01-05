@@ -4,6 +4,8 @@ import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@astrojs/vue';
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
   vite: {
     resolve: {
@@ -36,4 +38,5 @@ export default defineConfig({
   },
 
   integrations: [vue()],
+  adapter: netlify(),
 });
