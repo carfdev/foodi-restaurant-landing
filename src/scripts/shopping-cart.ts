@@ -12,10 +12,8 @@ export default defineComponent({
     });
 
     return {
-      cartItems: computed(() => Object.values(cartItems.value)),
-      cartItemCount: computed(() =>
-        Object.values(cartItems.value).reduce((sum, item) => sum + item.quantity, 0),
-      ),
+      cartItems: computed(() => cartItems.value),
+      cartItemCount: computed(() => cartItems.value.reduce((sum, item) => sum + item.quantity, 0)),
       isMounted: computed(() => isMounted.value),
     };
   },
