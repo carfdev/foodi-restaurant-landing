@@ -1,0 +1,52 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Page Not Found | Foodi" showBanner={false}>
+  <div
+    class="flex min-h-[calc(100vh-6rem)] w-full items-center justify-center bg-gray-50 px-4 py-12"
+  >
+    <div class="container mx-auto flex flex-col items-center justify-center gap-6 text-center">
+      <div class="space-y-2">
+        <span
+          class="text-carnation-400 bg-carnation-50 mb-2 inline-block rounded-full px-3 py-1 text-sm font-semibold"
+        >
+          Error 404
+        </span>
+        <h2 class="text-3xl font-bold text-gray-800">Page Not Found</h2>
+        <p class="mx-auto max-w-lg text-gray-600">
+          The page you are looking for doesn't exist or has been moved.
+        </p>
+      </div>
+
+      <div class="mt-2 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="/"
+          class="bg-malachite-400 hover:bg-malachite-500 shadow-malachite-200 rounded-full px-8 py-3 font-semibold text-white shadow-lg transition-colors duration-300"
+        >
+          Back to Home
+        </a>
+
+        <a
+          href="https://github.com/carfdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full bg-gray-800 px-8 py-3 font-semibold text-white shadow-xl transition-colors duration-300 hover:bg-gray-900"
+        >
+          My Github Profile
+        </a>
+      </div>
+
+      <div
+        class="mt-8 flex flex-col items-center gap-2 border-t border-gray-100 pt-6 text-sm text-gray-500"
+      >
+        <p>
+          Developed by <span class="font-bold text-gray-700">Carfdev</span>
+        </p>
+        <p>
+          Designed in Figma by <span class="font-bold text-gray-700">Dscode</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
